@@ -71,6 +71,7 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
     while len(OPEN_SET) > 0:
 
         leaving_node = Policy_indicatior()
+        print(leaving_node.name)
         for i in leaving_node.direct_down_stream_nodes:
             pros_entering_node = i["destination"]
             pros_entering_node = all_nodes_objects[all_nodes.index(pros_entering_node)]
