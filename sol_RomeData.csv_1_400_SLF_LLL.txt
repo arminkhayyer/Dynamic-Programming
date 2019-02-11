@@ -1,0 +1,10 @@
+Armin Khayyer 
+Data File: RomeData.csv
+Algorithem: SLF_LLL
+Origin: 1
+Destination: 400
+cost: 26298
+Path: [400, 388, 398, 399, 334, 335, 348, 347, 340, 344, 343, 338, 336, 191, 190, 171, 164, 167, 162, 165, 22, 1]
+running time: 5.6902088840015494
+number of nodes: 22
+visited percentge: %6.949000894721145
