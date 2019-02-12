@@ -11,6 +11,7 @@ import timeit
 def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
     start = timeit.default_timer()
     df = pd.read_csv(file_location, header=None, names=["origin", "destination", "cost"])
+
     origin_list = np.sort(df.origin.unique())
     destination_list = np.sort(df.destination.unique())
     all_nodes = list(set().union(origin_list, destination_list))
@@ -25,7 +26,7 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
             self.distance = float("inf")
             self.parent = ""
             self.visited = 0
-            self.direct_down_stream_nodes = df.loc[df.origin == self.name, ["destination", "cost"]].reset_index(drop=True).to_dict('records')
+            self.direct_down_stream_nodes = ""#df.loc[df.origin == self.name, ["destination", "cost"]].reset_index(drop=True).to_dict('records')
 
         def find_path(self, dest, org):
             path = [dest.name]
@@ -37,8 +38,8 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
 
 
 
-
     all_nodes_objects = [node(i) for i in all_nodes]
+
     origin_index = all_nodes.index(origin)
     origin = all_nodes_objects[origin_index]
     origin.distance = 0
@@ -71,6 +72,7 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
     while len(OPEN_SET) > 0:
 
         leaving_node = Policy_indicatior()
+        leaving_node.direct_down_stream_nodes = df.loc[df.origin == leaving_node.name, ["destination", "cost"]].reset_index(drop=True).to_dict('records')
         print(leaving_node.name)
         for i in leaving_node.direct_down_stream_nodes:
             pros_entering_node = i["destination"]
@@ -118,14 +120,12 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
 
 
 
-
-
 instances = [[94998, 255479], [85, 34373], [234986, 148685], [14113, 260935],[103085, 219305], [2122, 142669], [703, 109758], [224011, 1585],[5641, 151854], [263213, 180097]]
 algs = ["SLF_LLL", "BFS", "Dijkstra", "DFS" ]
 
 
 #for i in instances:
-label_corecting_alg(file_location="NewYorkData.csv", origin=234986, destination=148685, policy="BFS")
+label_corecting_alg(file_location="RomeData.csv", origin=1, destination=400, policy="BFS")
 
 
 
