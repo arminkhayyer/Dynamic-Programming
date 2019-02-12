@@ -26,7 +26,7 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
             self.distance = float("inf")
             self.parent = ""
             self.visited = 0
-            self.direct_down_stream_nodes = ""#df.loc[df.origin == self.name, ["destination", "cost"]].reset_index(drop=True).to_dict('records')
+            self.direct_down_stream_nodes = ""    #df.loc[df.origin == self.name, ["destination", "cost"]].reset_index(drop=True).to_dict('records')
 
         def find_path(self, dest, org):
             path = [dest.name]
@@ -72,7 +72,8 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
     while len(OPEN_SET) > 0:
 
         leaving_node = Policy_indicatior()
-        leaving_node.direct_down_stream_nodes = df.loc[df.origin == leaving_node.name, ["destination", "cost"]].reset_index(drop=True).to_dict('records')
+        if leaving_node.direct_down_stream_nodes == "":
+            leaving_node.direct_down_stream_nodes = df.loc[df.origin == leaving_node.name, ["destination", "cost"]].reset_index(drop=True).to_dict('records')
         print(leaving_node.name)
         for i in leaving_node.direct_down_stream_nodes:
             pros_entering_node = i["destination"]
