@@ -125,7 +125,7 @@ algs = ["SLF_LLL", "BFS", "Dijkstra", "DFS" ]
 
 
 #for i in instances:
-label_corecting_alg(file_location="RomeData.csv", origin=1, destination=400, policy="BFS")
+label_corecting_alg(file_location="NewYorkData.csv", origin=85, destination= 34373, policy="Dijkstra")
 
 
 
