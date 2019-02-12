@@ -121,7 +121,7 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
 
 
 
-instances = [[94998, 255479], [14113, 260935],[103085, 219305], [2122, 142669], [703, 109758], [224011, 1585],[5641, 151854], [263213, 180097]]
+instances = [[263213, 180097]]
 algs = ["SLF_LLL", "BFS", "Dijkstra", "DFS" ]
 
 
