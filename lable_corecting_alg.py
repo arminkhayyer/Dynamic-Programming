@@ -127,7 +127,7 @@ instances = [[94998, 255479], [85, 34373], [234986, 148685], [14113, 260935],[10
 algs = ["SLF_LLL", "BFS", "Dijkstra", "DFS" ]
 
 
-for i in instances:
+for i in instances[1:]:
     label_corecting_alg(file_location="NewYorkData.csv", origin=i[0], destination= i[1], policy="BFS")
 
 
