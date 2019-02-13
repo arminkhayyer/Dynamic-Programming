@@ -77,12 +77,14 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
         print(leaving_node.name)
         for i in leaving_node.direct_down_stream_nodes:
             pros_entering_node = i["destination"]
-            pros_entering_node = all_nodes_objects[all_nodes.index(pros_entering_node)]
+
+            #pros_entering_node = all_nodes_objects[all_nodes.index(pros_entering_node)]
+            pros_entering_node = all_nodes_objects[pros_entering_node -1 ]
             if leaving_node.distance + i["cost"] < min(pros_entering_node.distance , upper):
                 pros_entering_node.distance = leaving_node.distance + i["cost"]
                 pros_entering_node.parent = leaving_node
                 pros_entering_node.visited += 1
-                if destination.name != pros_entering_node.name:
+                if destination != pros_entering_node:
                     if policy =="SLF_LLL" and len(OPEN_SET) > 1:
                         if OPEN_SET[1].distance > pros_entering_node.distance:
                             OPEN_SET.insert(0,pros_entering_node)
@@ -126,7 +128,7 @@ algs = ["SLF_LLL", "BFS", "Dijkstra", "DFS" ]
 
 
 for i in instances:
-    label_corecting_alg(file_location="NewYorkData.csv", origin=i[0], destination= i[1], policy="BFS")
+    label_corecting_alg(file_location="NewYorkData.csv", origin=i[0], destination= i[1], policy="SLF_LLL")
 
 
 
