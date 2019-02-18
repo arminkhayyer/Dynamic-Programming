@@ -18,4 +18,4 @@ foo@bar:~$ python
 >>> label_corecting_alg(file_location="your data file.csv", origin=234986, destination=148685 , policy="SLF_LLL")
 ```
 
-**note the data file should be a CSV file whit three columns. each row should represent an arc. the first column is the origin of the arc, the second column is the destination of the arc, and finally, the third one is the associated cost of that arc.
+**note the data file should be a CSV file whit three columns. each row should represent an arc. the first column is the origin of the arc, the second column is the destination of the arc, and finally, the third one is the associated cost of that arc.**
