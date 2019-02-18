@@ -85,7 +85,7 @@ def label_corecting_alg(file_location, origin, destination, policy = "BFS" ):
         leaving_node = Policy_indicatior()
         if leaving_node.direct_down_stream_nodes == "":
             leaving_node.direct_down_stream_nodes = df.loc[df.origin == leaving_node.name, ["destination", "cost"]].reset_index(drop=True).to_dict('records')
-        print(leaving_node.name)
+
         for i in leaving_node.direct_down_stream_nodes:
             pros_entering_node = i["destination"]
             total_iterations += 1
